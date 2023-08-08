@@ -26,10 +26,10 @@
 					<li>
 							<a href="{{ item.url | prepend: site.baseurl }}">
 								<div class="img-wrapper">
-									<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
+									<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.data.title }}" />
 								</div>
-								<span class="h2">{{ item.project.type }}</span>
-								<h3>{{ item.project.title }}</h3>\
+								<span class="h2">{{ item.data.type }}</span>
+								<h3>{{ item.data.title }}</h3>
 							</a>
 					</li>
 					{% endfor %}
