@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>{{ site.author }} / {{ page.project.title }}</title>
+	<title>{{ site.author }} / {{ page.data.title }}</title>
 	<meta name="author" content="{{ site.author }}">
 	<meta name="description" content="{{ page.content | strip_html | strip_newlines }}">
 	<meta name="keywords" content="{{ page.meta.keywords }}">
@@ -10,18 +10,18 @@
 <body>
 	{% include header.html %}
 	<main class="content">
-		<section class="project">
+		<section class="data">
 			<div class="container">
 				<article>
 					<span class="h2">Project Title</span>
 					<h1>
-						<a href="{{ page.project.url }}" target="_blank" title="{{ page.project.title }}" rel="nofollow">{{ page.project.title }}</a>
+						<a href="{{ page.data.url }}" target="_blank" title="{{ page.data.title }}" rel="nofollow">{{ page.project.title }}</a>
 					</h1>
 					<span class="h2">Role</span>
 					{{ page.content }}
-					<div class="project-meta">
+					<div class="data">
 						<span class="h2">Technologies</span>
-						<p>{{ page.project.tech }}</p>
+						<p>{{ page.data.tech }}</p>
 						<span class="h2">Agency</span>
 						<p><a title="{{ page.agency.title }}" href="{{ page.agency.url }}" target="_blank" rel="nofollow">{{ page.agency.title }}</a></p>
 						<span class="h2">Year</span>
