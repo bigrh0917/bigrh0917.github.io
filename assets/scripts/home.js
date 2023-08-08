@@ -8,3 +8,4 @@ var sr = ScrollReveal({
 
 sr.reveal('.projects-list a');
 sr.reveal('.posts-list a');
+sr.reveal('.datas-list a');
