@@ -23,15 +23,15 @@
 				<h2>Data analytics projects I have completed.</h2>
 				<ul class="datas-list">
 					{% for item in site.categories.projects reversed %}
-						<li>
+					<li>
 							<a href="{{ item.url | prepend: site.baseurl }}">
 								<div class="img-wrapper">
 									<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
 								</div>
 								<span class="h2">{{ item.project.type }}</span>
-								<h3>{{ item.project.title }}</h3>
+								<h3>{{ item.project.title }}</h3>\
 							</a>
-						</li>
+					</li>
 					{% endfor %}
 				</ul>
 			</div>
