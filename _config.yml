@@ -1,0 +1,16 @@
+# User config
+author: "Li Yuchen  ╮(๑•́ ₃•̀๑)╭"
+tagline: " Welcome ~~~ "
+description: "One day, I'll go all over the world."
+# keywords: "Pineapple, Pineapple Pizza, Pineapple House"
+email: "yuchener.li@outlook.com"
+linkedin: "https://www.linkedin.com/"
+twitter: "https://twitter.com/"
+github: "https://github.com/"
+
+# Site config
+baseurl: ""
+highlighter: rouge
+sass:
+  sass_dir: assets/scss
+  style: compressed

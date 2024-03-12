@@ -1,11 +1,80 @@
+---
+---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>晨</title>
+	<title>{{ site.author }}  {{ site.tagline }}</title>
+	<meta name="author" content="{{ site.author }}">
+	<meta name="description" content="{{ site.description }}">
+	<meta name="keywords" content="{{ site.keywords }}">
+	{% include head.html %}
 </head>
 <body>
-    <h1>我的第一个标题</h1>
-    <p>我的第一个段落。</p>
+	{% include header.html %}
+	<main class="content">
+		<section class="intro">
+			<div class="container">
+				<h2>About me.</h2>
+				<p>{{ site.description }}</p>
+			</div>
+		</section>
+		<section class="Data Analytics Projects">
+			<div class="container">
+				<h2>Data analytics projects I have completed.</h2>
+				<ul class="datas-list">
+					{% for item in site.categories.datas reversed %}
+					<li>
+							<a href="{{ item.url | prepend: site.baseurl }}">
+								<div class="img-wrapper">
+									<img src="{{ item.data.logo | prepend: site.baseurl }}" alt="{{ item.data.title }}" />
+								</div>
+								<span class="h2">{{ item.data.type }}</span>
+								<h3>{{ item.data.title }}</h3>
+							</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+		<section class="AI and Machine Learning Projects">
+			<div class="container">
+				<h2>AI and machine learning projects I have completed</h2>
+				<ul class="projects-list">
+					{% for item in site.categories.projects reversed %}
+					<li>
+						<a href="{{ item.url | prepend: site.baseurl }}">
+							<div class="img-wrapper">
+								<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
+							</div>
+							<span class="h2">{{ item.project.type }}</span>
+							<h3>{{ item.project.title }}</h3>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+		<section class="Software Development Projects">
+			<div class="container">
+				<h2>Software development projects I have completed.</h2>
+				<ul class="projects-list">
+					{% for item in site.categories.projects reversed %}
+					<li>
+						<a href="{{ item.url | prepend: site.baseurl }}">
+							<div class="img-wrapper">
+								<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
+							</div>
+							<span class="h2">{{ item.project.type }}</span>
+							<h3>{{ item.project.title }}</h3>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</section>
+	</main>
+	{% include footer.html %}
+	<script src="{{ "/assets/scripts/vendor/scrollreveal.min.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ "/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
 </body>
 </html>
