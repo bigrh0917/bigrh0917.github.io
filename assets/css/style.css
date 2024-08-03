@@ -1,0 +1,305 @@
+.side {
+    position: sticky;
+    top: 220px;
+    width: 240px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    padding-bottom: 20px;
+    box-shadow: -1px 5px 35px -9px rgba(0, 0, 0, 0.1);
+    /* 强行标注，显眼包 */
+    /*border: 3px solid red;*/
+    unicode-bidi: isolate;
+    appearance: none;
+
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+ul li {
+    list-style-type: none;
+    padding-left: 0px;
+
+}
+
+ul li a {
+    text-decoration: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background-color: #e8e8e8;
+    margin: 0px 0px 10px 0px;
+}
+
+.hr2 {
+    width: 100%;
+    height: 1px;
+    background-color: #f7f7f7;
+    margin: 20px 0px 20px 0px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+a {
+
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000; /* 设置链接的初始颜色为蓝色 */
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000000; /* 设置链接的初始颜色为蓝色 */
+    text-decoration: none; /* 取消链接的下划线 */
+}
+
+
+a:link {
+    color: #000000; /* 设置链接的初始颜色为蓝色 */
+    text-decoration: none; /* 取消链接的下划线 */
+}
+
+
+a:active {
+    color: #000000; /* 设置链接的初始颜色为蓝色 */
+    text-decoration: none; /* 取消链接的下划线 */
+}
+
+.dir {
+    height: 250px;
+    overflow-y: scroll;
+    text-decoration: none;
+}
+
+.catalog-active {
+    color: #000000;
+    border-left: 3px solid #000000;
+    font-weight: 800;
+}
+
+.catalog-active a {
+    color: #000000;
+}
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.06);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+.side div ul li, .catalog {
+    margin-bottom: 4px;
+}
+
+
+@media (min-width: 550px) {
+    .datas-list {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem
+    }
+
+    .datas-list:after {
+        content: "";
+        clear: both;
+        display: block
+    }
+
+    .datas-list li {
+        float: left;
+        width: 50%
+    }
+
+    .datas-list a {
+        padding: 0 1.5rem
+    }
+}
+
+@font-face {
+    font-family: CMR;
+    src: url(../fonts/cmuserif_roman_macroman/cmunrm-webfont.woff);
+}
+
+@font-face {
+    font-family: CMB;
+    src: url(../fonts/cmuserif_bold_macroman/cmunbx-webfont.woff);
+}
+
+.body {
+    display: flex;
+    align-items: flex-start;
+}
+
+.LatexTitle {
+    font-family: CMR;
+    font-size: 40px;
+    padding-top: 40vh;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.LatexName {
+    font-family: CMR;
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 13px;
+}
+
+.LatexDate {
+    font-family: CMR;
+    font-size: 27px;
+    text-align: center;
+    margin-top: 13px;
+    margin-bottom: 45px;
+}
+
+.LatexAbstract {
+    font-family: CMB;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.LatexAbstractText {
+    margin-top: 10px;
+    font-family: CMR;
+    font-size: 21px;
+    text-align: center;
+    text-align: justify;
+    text-indent: 20px
+}
+
+.Margins {
+    padding-left: 8%;
+    width: 58%;
+}
+
+.AbstractMargins {
+    padding-left: 6%;
+    width: 88%;
+    padding-bottom: 15px;
+}
+
+.h1 {
+    font-family: CMB;
+    font-size: 33px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+
+
+.h2 {
+    font-family: CMB;
+    font-size: 29px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+
+.BodyText {
+    font-family: CMR;
+    font-size: 23px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 45px;
+    line-height: 125%;
+    column-count: 1;
+}
+
+.BodyText2Col {
+    font-family: CMR;
+    font-size: 23px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 45px;
+    line-height: 125%;
+    column-count: 2;
+}
+
+.BodyText3Col {
+    font-family: CMR;
+    font-size: 23px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 45px;
+    line-height: 125%;
+    column-count: 3;
+}
+
+.Justified {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.footerSize {
+    height: 30vh;
+    width: 100%;
+}
+
+.tiny {
+    font-size: 8px;
+}
+
+.scriptsize {
+    font-size: 11px;
+}
+
+.footnotesize {
+    font-size: 13px;
+}
+
+.small {
+    font-size: 15px;
+}
+
+.normalsize {
+    font-size: 18px;
+}
+
+.large {
+    font-size: 19px;
+}
+
+.Large {
+    font-size: 23px;
+}
+
+.LARGE {
+    font-size: 28px;
+}
+
+.huge {
+    font-size: 33px;
+}
+
+.HUGE {
+    font-size: 33px;
+}

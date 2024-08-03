@@ -1,80 +1,256 @@
----
----
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<title>{{ site.author }}  {{ site.tagline }}</title>
-	<meta name="author" content="{{ site.author }}">
-	<meta name="description" content="{{ site.description }}">
-	<meta name="keywords" content="{{ site.keywords }}">
-	{% include head.html %}
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+    </script>
 </head>
 <body>
-	{% include header.html %}
-	<main class="content">
-		<section class="intro">
-			<div class="container">
-				<h2>About me.</h2>
-				<p>{{ site.description }}</p>
-			</div>
-		</section>
-		<section class="Data Analytics Projects">
-			<div class="container">
-				<h2>Data analytics projects I have completed.</h2>
-				<ul class="datas-list">
-					{% for item in site.categories.datas reversed %}
-					<li>
-							<a href="{{ item.url | prepend: site.baseurl }}">
-								<div class="img-wrapper">
-									<img src="{{ item.data.logo | prepend: site.baseurl }}" alt="{{ item.data.title }}" />
-								</div>
-								<span class="h2">{{ item.data.type }}</span>
-								<h3>{{ item.data.title }}</h3>
-							</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</section>
-		<section class="AI and Machine Learning Projects">
-			<div class="container">
-				<h2>AI and machine learning projects I have completed</h2>
-				<ul class="projects-list">
-					{% for item in site.categories.projects reversed %}
-					<li>
-						<a href="{{ item.url | prepend: site.baseurl }}">
-							<div class="img-wrapper">
-								<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
-							</div>
-							<span class="h2">{{ item.project.type }}</span>
-							<h3>{{ item.project.title }}</h3>
-						</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</section>
-		<section class="Software Development Projects">
-			<div class="container">
-				<h2>Software development projects I have completed.</h2>
-				<ul class="projects-list">
-					{% for item in site.categories.projects reversed %}
-					<li>
-						<a href="{{ item.url | prepend: site.baseurl }}">
-							<div class="img-wrapper">
-								<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
-							</div>
-							<span class="h2">{{ item.project.type }}</span>
-							<h3>{{ item.project.title }}</h3>
-						</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</section>
-	</main>
-	{% include footer.html %}
-	<script src="{{ "/assets/scripts/vendor/scrollreveal.min.js" | prepend: site.baseurl }}"></script>
-	<script src="{{ "/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
+<div class="body">
+    <div class="side">
+        <div class="new">
+            <ul>
+                <li><a href="">打工人终极梦想:跑车/别墅</a></li>
+                <li><a href="">Notion </a></li>
+                <li><a href="">打工人终极梦想:跑车/别墅</a></li>
+            </ul>
+
+
+        </div>
+
+        <div class="hr2"></div>
+        <div>
+            <p>Catalogs</p>
+            <div class="hr"></div>
+        </div>
+        <div class="dir">
+
+        </div>
+    </div>
+    <div class="Margins">
+        <p class="LatexTitle">{{ page.title }}</p>
+        {% if page.author %} <p class="LatexName">{{ page.author }}</p> {% endif %}
+        {% if page.date %} <p class="LatexDate">{{ page.date }}</p> {% endif %}
+
+        {% if page.abstract %}
+        <div class="AbstractMargins">
+            <p class="LatexAbstract">Abstract</p>
+            <p class="LatexAbstractText">{{ page.abstract }}</p>
+        </div>
+        {% endif %}
+
+
+        {{ content }}
+        <div class="article">
+            <p class="h1">1 &ensp; Introduction</p>
+            <p class="BodyText">This has been my first attempt at Jekyll and with such it is likely not too great. I'd
+                like
+                to
+                design this to work a bit more seamlessly aka without inline styling in the page.
+                I imagine this is possible but not too sure how to do it yet. I also want to add more Latex style
+                designs
+                such
+                as designed lists and sub sections etc.
+            </p>
+
+            <p class="BodyText">Body Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu molestie
+                nibh.
+                Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra volutpat, arcu turpis tempor
+                tortor,
+                eget
+                posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec posuere sem interdum. Praesent
+                malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia ullamcorper scelerisque.
+                Integer
+                pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo, egestas sollicitudin ligula sed,
+                vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper mauris varius, ultricies
+                diam
+                id,
+                vestibulum odio.
+            </p>
+
+            <p class="BodyText">
+                When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+            </p>
+
+            <p class="h2">1.2 &ensp; Text Styles</p>
+            <p class="BodyText Justified">Justified Body Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent
+                eu molestie nibh. Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra volutpat, arcu
+                turpis
+                tempor tortor, eget posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec posuere sem
+                interdum. Praesent malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia
+                ullamcorper
+                scelerisque. Integer pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo, egestas
+                sollicitudin ligula sed, vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper
+                mauris
+                varius, ultricies diam id, vestibulum odio.
+            </p>
+
+
+            <p class="BodyText2Col Justified">2 Column Justified Body Text: Lorem ipsum dolor sit amet, consectetur
+                adipiscing
+                elit. Praesent eu molestie nibh. Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra
+                volutpat,
+                arcu turpis tempor tortor, eget posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec
+                posuere
+                sem interdum. Praesent malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia
+                ullamcorper scelerisque. Integer pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo,
+                egestas
+                sollicitudin ligula sed, vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper
+                mauris
+                varius, ultricies diam id, vestibulum odio.
+            </p>
+
+            <p class="BodyText3Col Justified">3 Column Justified Body Text: Lorem ipsum dolor sit amet, consectetur
+                adipiscing
+                elit. Praesent eu molestie nibh. Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra
+                volutpat,
+                arcu turpis tempor tortor, eget posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec
+                posuere
+                sem interdum. Praesent malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia
+                ullamcorper scelerisque. Integer pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo,
+                egestas
+                sollicitudin ligula sed, vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper
+                mauris
+                varius, ultricies diam id, vestibulum odio.
+            </p>
+            <p class="h1">1 &ensp; Introduction</p>
+            <p class="BodyText">This has been my first attempt at Jekyll and with such it is likely not too great. I'd
+                like
+                to
+                design this to work a bit more seamlessly aka without inline styling in the page.
+                I imagine this is possible but not too sure how to do it yet. I also want to add more Latex style
+                designs
+                such
+                as designed lists and sub sections etc.
+            </p>
+
+            <p class="BodyText">Body Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu molestie
+                nibh.
+                Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra volutpat, arcu turpis tempor
+                tortor,
+                eget
+                posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec posuere sem interdum. Praesent
+                malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia ullamcorper scelerisque.
+                Integer
+                pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo, egestas sollicitudin ligula sed,
+                vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper mauris varius, ultricies
+                diam
+                id,
+                vestibulum odio.
+            </p>
+
+            <p class="BodyText">
+                When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+                \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+            </p>
+
+            <p class="h2">1.2 &ensp; Text Styles</p>
+            <p class="BodyText Justified">Justified Body Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent
+                eu molestie nibh. Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra volutpat, arcu
+                turpis
+                tempor tortor, eget posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec posuere sem
+                interdum. Praesent malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia
+                ullamcorper
+                scelerisque. Integer pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo, egestas
+                sollicitudin ligula sed, vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper
+                mauris
+                varius, ultricies diam id, vestibulum odio.
+            </p>
+
+
+            <p class="BodyText2Col Justified">2 Column Justified Body Text: Lorem ipsum dolor sit amet, consectetur
+                adipiscing
+                elit. Praesent eu molestie nibh. Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra
+                volutpat,
+                arcu turpis tempor tortor, eget posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec
+                posuere
+                sem interdum. Praesent malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia
+                ullamcorper scelerisque. Integer pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo,
+                egestas
+                sollicitudin ligula sed, vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper
+                mauris
+                varius, ultricies diam id, vestibulum odio.
+            </p>
+
+            <p class="BodyText3Col Justified">3 Column Justified Body Text: Lorem ipsum dolor sit amet, consectetur
+                adipiscing
+                elit. Praesent eu molestie nibh. Integer faucibus aliquam congue. Praesent egestas, augue ac pharetra
+                volutpat,
+                arcu turpis tempor tortor, eget posuere mi sem in neque. Aliquam pretium dolor non mauris hendrerit, nec
+                posuere
+                sem interdum. Praesent malesuada nunc in nisi fringilla tempor. Integer non ante eros. Quisque lacinia
+                ullamcorper scelerisque. Integer pulvinar nunc ipsum, eget placerat urna commodo vel. Nullam diam justo,
+                egestas
+                sollicitudin ligula sed, vehicula egestas justo. Sed dictum ipsum rutrum sagittis tempor. Etiam semper
+                mauris
+                varius, ultricies diam id, vestibulum odio.
+            </p>
+
+            <div class="container">
+
+                <ul class="datas-list">
+
+                    <li>
+                        <a href="https://liyuchen.me/data1/" data-sr-id="11"
+                           style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: all, -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: all, transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                            <div class="img-wrapper">
+                                <img src="./bac.png" alt="data1">
+                            </div>
+                            <h5>data1</h5>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://liyuchen.me/data1/" data-sr-id="11"
+                           style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: all, -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: all, transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                            <div class="img-wrapper">
+                                <img src="./bac.png" alt="data1">
+                            </div>
+                            <h5>data1</h5>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://liyuchen.me/data1/" data-sr-id="11"
+                           style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: all, -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: all, transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                            <div class="img-wrapper">
+                                <img src="./bac.png" alt="data1">
+                            </div>
+                            <h5>data1</h5>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://liyuchen.me/data1/" data-sr-id="11"
+                           style="; visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: all, -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: all, transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                            <div class="img-wrapper">
+                                <img src="./bac.png" alt="data1">
+                            </div>
+                            <h5>data1</h5>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./assets/js/script.js"></script>
+</div>
 </body>
+<footer class="footerSize">
+
+</footer>
 </html>
+
+
+
