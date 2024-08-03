@@ -15,37 +15,39 @@
     <div class="side">
         <div class="new">
             <ul>
-                <li><a href="">打工人终极梦想:跑车/别墅</a></li>
-                <li><a href="">Notion </a></li>
-                <li><a href="">打工人终极梦想:跑车/别墅</a></li>
+                <li><a href="#tap">Li Yuchen</a></li>
+                <li>
+                    <a href="https://liyuchener.notion.site/479013a8ca8f4f04b34f828a02d7f817?v=17c68c85f9ea408cb5c21e5993a03797&pvs=4"
+                       target="_blank">Li's
+                        Notes </a></li>
+                <li><a href="https://github.com/bigrh0917" target="_blank">Li's Github</a></li>
             </ul>
-
-
         </div>
 
         <div class="hr2"></div>
+
         <div>
-            <p>Catalogs</p>
+            <a href="#side">Catalogs</a>
             <div class="hr"></div>
         </div>
+
         <div class="dir">
-
         </div>
+
     </div>
+
     <div class="Margins">
-        <p class="LatexTitle">{{ page.title }}</p>
-        {% if page.author %} <p class="LatexName">{{ page.author }}</p> {% endif %}
-        {% if page.date %} <p class="LatexDate">{{ page.date }}</p> {% endif %}
+        <p class="LatexTitle" id="tap">The introduction of my projects</p>
+        <p class="LatexName">Li Yuchen</p>
+        <p class="LatexDate">Latest update date: 24-08-03</p>
 
-        {% if page.abstract %}
         <div class="AbstractMargins">
-            <p class="LatexAbstract">Abstract</p>
-            <p class="LatexAbstractText">{{ page.abstract }}</p>
+            <p class="LatexAbstract" id="side">Abstract</p>
+            <p class="LatexAbstractText">Hi, I'm Lee Yuchen. This is where I present the projects I've written
+                about.This page is built with native html, css, and js.I hope you get to know me better here, and that
+                these projects are useful to you!</p>
         </div>
-        {% endif %}
 
-
-        {{ content }}
         <div class="article">
             <p class="h1">1 &ensp; Introduction</p>
             <p class="BodyText">This has been my first attempt at Jekyll and with such it is likely not too great. I'd

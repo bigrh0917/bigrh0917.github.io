@@ -118,6 +118,15 @@ a:active {
     margin-bottom: 4px;
 }
 
+.side div a{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
 
 @media (min-width: 550px) {
     .datas-list {
@@ -159,7 +168,7 @@ a:active {
 .LatexTitle {
     font-family: CMR;
     font-size: 40px;
-    padding-top: 40vh;
+    padding-top: 40px;
     text-align: center;
     margin-bottom: 20px;
 }
