@@ -1,0 +1,13 @@
+<!-- 语言切换器 -->
+<div class="language-switcher-container">
+    <div class="language-switcher">
+        <select id="language-select" onchange="location = this.value;">
+            {{ $site := .Site }}
+            {{ range .Site.Languages }}
+            <option value="{{ $site.BaseURL }}{{ .Lang }}" {{ if eq .Lang $.Lang }}selected{{ end }}>{{ .LanguageName
+                }}
+            </option>
+            {{ end }}
+        </select>
+    </div>
+</div>
