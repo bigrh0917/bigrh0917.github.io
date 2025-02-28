@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Frontend on limanshu</title>
-    <link>http://localhost:1313/tags/frontend/</link>
+    <link>https://bigrh0917.github.io/tags/frontend/</link>
     <description>Recent content in Frontend on limanshu</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/frontend/atom.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bigrh0917.github.io/tags/frontend/atom.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build a Blog with Hugo and GitHub Pages</title>
-      <link>http://localhost:1313/posts/bulit-blog-by-hugo-and-gitpage/</link>
+      <link>https://bigrh0917.github.io/posts/bulit-blog-by-hugo-and-gitpage/</link>
       <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/bulit-blog-by-hugo-and-gitpage/</guid>
+      <guid>https://bigrh0917.github.io/posts/bulit-blog-by-hugo-and-gitpage/</guid>
       <description>&lt;p&gt;Vivamus posuere arcu interdum felis venenatis congue. Etiam dapibus condimentum lorem id dignissim. Morbi pulvinar erat quis arcu ornare faucibus. Nulla commodo est id ante porttitor gravida. Sed elementum ante eget turpis consectetur, vitae rutrum ligula eleifend. Fusce iaculis placerat sem, non condimentum odio hendrerit ac. Sed vestibulum neque pellentesque, dapibus tortor et, scelerisque quam. Aenean imperdiet eros quis vestibulum ullamcorper. Integer vestibulum mattis elit, non congue lacus porttitor condimentum. Donec dapibus eleifend nibh, eget tempus justo pulvinar ut. Vivamus eu risus sed orci blandit varius luctus et ex. Mauris tempor dapibus aliquam.&lt;/p&gt;</description>
     </item>
   </channel>
