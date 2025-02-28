@@ -1,0 +1,19 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "title",
+  "home_page_url": "http://localhost:1313/",
+  "feed_url": "http://localhost:1313/feed.json",
+  "description": "A hugo",
+  "favicon": "http://localhost:1313//assets/favicon.ico",
+  "expired": false,
+  "author": {
+    "name": "author",
+    "url": "http://localhost:1313/"
+  },
+  "items": [
+    
+    
+
+    
+  ]
+}

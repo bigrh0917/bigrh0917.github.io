@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Time on limanshu</title>
+    <link>http://localhost:1313/tags/time/</link>
+    <description>Recent content in Time on limanshu</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/time/atom.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rich Content2</title>
+      <link>http://localhost:1313/posts/rich-content2/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rich-content2/</guid>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales, est eget pretium accumsan, ante velit convallis felis, ac fringilla ex tellus non libero. Duis non eleifend erat. Etiam tempus, velit pharetra vehicula placerat, risus ipsum lacinia est, at convallis purus augue in sapien. Nulla non magna maximus, volutpat ligula id, mattis ante. Aenean nec sollicitudin lacus, fermentum commodo enim. Phasellus quam turpis, auctor eget ex sit amet, porttitor tristique nisi. Nam eget dolor imperdiet, blandit dui ac, consectetur nisi.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

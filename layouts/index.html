@@ -10,7 +10,7 @@
       {{ .Content }}
       {{ if gt (len ( where .Site.RegularPages "Section" "posts" )) 0 }}
 
-
+<br>
       <h3>Latest</h3>
       <section>
         {{ range (first .Site.Params.items (where .Site.RegularPages "Section" "posts" ).ByDate.Reverse) }}
