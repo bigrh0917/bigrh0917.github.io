@@ -35,7 +35,8 @@
 &lt;li&gt;代码仓库：&lt;a href=&#34;https://github.com/bigrh0917/bigrh0917.github.io&#34;&gt;bigrh0917.github.io&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;访问：&lt;a href=&#34;https://bigrh0917.github.io/&#34;&gt;limanshu&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;更一步详细内容&#34;&gt;更一步详细内容&lt;/h3&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;更一步详细内容&#34;&gt;更一步详细内容&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;业务场景：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长&lt;/li&gt;
@@ -89,7 +90,8 @@
 &lt;li&gt;在 Actions 工作流中集成 &lt;strong&gt;Trivy 漏洞扫描&lt;/strong&gt;，阻断高风险依赖项的合并&lt;/li&gt;
 &lt;li&gt;通过 &lt;strong&gt;Hugo 内联 CSP 策略&lt;/strong&gt;，禁止不安全脚本加载&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;附件&#34;&gt;附件&lt;/h3&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;附件&#34;&gt;附件&lt;/h2&gt;
 &lt;p&gt;&lt;img
   src=&#34;https://bigrh0917.github.io/img/hugo1.png&#34;
   alt=&#34;&#34;
@@ -99,7 +101,8 @@
 /&gt;
 
 &lt;/p&gt;
-&lt;h3 id=&#34;可能有用的参考资料&#34;&gt;可能有用的参考资料&lt;/h3&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&#34;可能有用的参考资料&#34;&gt;可能有用的参考资料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt;
 &lt;ul&gt;
