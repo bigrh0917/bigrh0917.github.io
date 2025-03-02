@@ -6,41 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Liste - https://bigrh0917.github.io/">
     <title>Build a Blog with Hugo and GitHub Pages | limanshu</title>
-    <meta name="description" content="A hugo">
+    <meta name="description" content="Build a Blog with Hugo and GitHub Pages">
     <meta property="og:url" content="https://bigrh0917.github.io/posts/bulit-blog-by-hugo-and-gitpage/">
   <meta property="og:site_name" content="limanshu">
   <meta property="og:title" content="Build a Blog with Hugo and GitHub Pages">
-  <meta property="og:description" content="项目特点
-该项目并非简单的博客搭建，而是以生产级 SaaS 标准设计的系统 通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20 % 引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%） 这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求 项目成果
-全球平均加载时间（FCP）: 0.164s（WebPageTest 测试，基于 4G 网络） Lighthouse 综合评分: 98/100（桌面设备）[^ 1] 部署耗时降至 25 秒全自动化 通过 GitHub Actions 矩阵策略，实现 多版本 Hugo 并行构建验证 访问与参考
-代码仓库：bigrh0917.github.io 访问：limanshu 更一步详细内容 业务场景：
-在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长 技术挑战：
-传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力 手动部署流程繁琐，无法实现 CI/CD 核心任务（Task）：
-设计并实现一个企业级博客系统，要求： 构建时间 ≤ 2秒（千篇文章规模） 全站 Lighthouse 评分 ≥ 95 实现 GitOps 驱动的自动化发布流程 支持灰度发布、多环境隔离（dev/staging/prod） 可以选择集成安全防护与监控告警能力 技术行动
-架构设计与选型 采用 Hugo &#43; GitHub 生态作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s/1000文章）替代传统方案（如 Gatsby 构建时间 25s&#43;） 使用 GitHub Actions 多工作流策略 主工作流：合并到 main 分支时触发生产环境构建 独立工作流：PR 提交时触发 Lighthouse 自动化测试 通过 自动化质量门禁 保障项目的技术标准 Lighthouse 自动化测试 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分） 性能优化">
+  <meta property="og:description" content="Build a Blog with Hugo and GitHub Pages">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-02-28T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-02-28T00:00:00+00:00">
     <meta property="article:tag" content="Frontend">
-    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="testtag">
     <meta property="article:tag" content="CI/CD">
 
     
   <meta itemprop="name" content="Build a Blog with Hugo and GitHub Pages">
-  <meta itemprop="description" content="项目特点
-该项目并非简单的博客搭建，而是以生产级 SaaS 标准设计的系统 通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20 % 引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%） 这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求 项目成果
-全球平均加载时间（FCP）: 0.164s（WebPageTest 测试，基于 4G 网络） Lighthouse 综合评分: 98/100（桌面设备）[^ 1] 部署耗时降至 25 秒全自动化 通过 GitHub Actions 矩阵策略，实现 多版本 Hugo 并行构建验证 访问与参考
-代码仓库：bigrh0917.github.io 访问：limanshu 更一步详细内容 业务场景：
-在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长 技术挑战：
-传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力 手动部署流程繁琐，无法实现 CI/CD 核心任务（Task）：
-设计并实现一个企业级博客系统，要求： 构建时间 ≤ 2秒（千篇文章规模） 全站 Lighthouse 评分 ≥ 95 实现 GitOps 驱动的自动化发布流程 支持灰度发布、多环境隔离（dev/staging/prod） 可以选择集成安全防护与监控告警能力 技术行动
-架构设计与选型 采用 Hugo &#43; GitHub 生态作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s/1000文章）替代传统方案（如 Gatsby 构建时间 25s&#43;） 使用 GitHub Actions 多工作流策略 主工作流：合并到 main 分支时触发生产环境构建 独立工作流：PR 提交时触发 Lighthouse 自动化测试 通过 自动化质量门禁 保障项目的技术标准 Lighthouse 自动化测试 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分） 性能优化">
+  <meta itemprop="description" content="Build a Blog with Hugo and GitHub Pages">
   <meta itemprop="datePublished" content="2025-02-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-02-28T00:00:00+00:00">
   <meta itemprop="wordCount" content="167">
-  <meta itemprop="keywords" content="Frontend,Git,CI/CD">
+  <meta itemprop="keywords" content="Frontend,testtag,CI/CD">
     
     <link rel="canonical" href="https://bigrh0917.github.io/posts/bulit-blog-by-hugo-and-gitpage/">
     <link rel="icon" href="https://bigrh0917.github.io//assets/favicon.ico">
@@ -65,7 +51,7 @@
       "name": "Build a Blog with Hugo and GitHub Pages",
       "headline": "Build a Blog with Hugo and GitHub Pages",
       "alternativeHeadline": "",
-      "description": "\u003cp\u003e\u003cstrong\u003e项目特点\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e该项目并非简单的博客搭建，而是以\u003cstrong\u003e生产级 SaaS 标准\u003c\/strong\u003e设计的系统\u003c\/li\u003e\n\u003cli\u003e通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20 %\u003c\/li\u003e\n\u003cli\u003e引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%）\u003c\/li\u003e\n\u003cli\u003e这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e项目成果\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e全球平均加载时间（FCP）: \u003cstrong\u003e0.164s\u003c\/strong\u003e（WebPageTest 测试，基于 4G 网络）\u003c\/li\u003e\n\u003cli\u003eLighthouse 综合评分: \u003cstrong\u003e98\/100\u003c\/strong\u003e（桌面设备）[^ 1]\u003c\/li\u003e\n\u003cli\u003e部署耗时降至 \u003cstrong\u003e25 秒全自动化\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e通过 GitHub Actions 矩阵策略，实现 \u003cstrong\u003e多版本 Hugo 并行构建验证\u003c\/strong\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e访问与参考\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e代码仓库：\u003ca href=\u0022https:\/\/github.com\/bigrh0917\/bigrh0917.github.io\u0022\u003ebigrh0917.github.io\u003c\/a\u003e\u003c\/li\u003e\n\u003cli\u003e访问：\u003ca href=\u0022https:\/\/bigrh0917.github.io\/\u0022\u003elimanshu\u003c\/a\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c\/p\u003e\n\u003ch2 id=\u0022更一步详细内容\u0022\u003e更一步详细内容\u003c\/h2\u003e\n\u003cp\u003e\u003cstrong\u003e业务场景：\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e技术挑战\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力\u003c\/li\u003e\n\u003cli\u003e手动部署流程繁琐，无法实现 CI\/CD\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e核心任务（Task）：\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e设计并实现一个\u003cstrong\u003e企业级博客系统\u003c\/strong\u003e，要求：\n\u003cul\u003e\n\u003cli\u003e构建时间 ≤ 2秒（千篇文章规模）\u003c\/li\u003e\n\u003cli\u003e全站 Lighthouse 评分 ≥ 95\u003c\/li\u003e\n\u003cli\u003e实现 GitOps 驱动的自动化发布流程\u003c\/li\u003e\n\u003cli\u003e支持灰度发布、多环境隔离（dev\/staging\/prod）\u003c\/li\u003e\n\u003cli\u003e可以选择集成安全防护与监控告警能力\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e技术行动\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e架构设计与选型\n\u003cul\u003e\n\u003cli\u003e采用 \u003cstrong\u003eHugo \u002b GitHub 生态\u003c\/strong\u003e作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s\/1000文章）替代传统方案（如 Gatsby 构建时间 25s\u002b）\u003c\/li\u003e\n\u003cli\u003e使用 \u003cstrong\u003eGitHub Actions 多工作流策略\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e主工作流：合并到 main 分支时触发生产环境构建\u003c\/li\u003e\n\u003cli\u003e独立工作流：PR 提交时触发 Lighthouse 自动化测试\n\u003cul\u003e\n\u003cli\u003e通过 \u003cstrong\u003e自动化质量门禁\u003c\/strong\u003e 保障项目的技术标准\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eLighthouse 自动化测试\u003c\/strong\u003e 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分）\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e性能优化\u003c\/strong\u003e\u003c\/p\u003e",
+      "description": "Build a Blog with Hugo and GitHub Pages",
       "inLanguage": "en-us",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
