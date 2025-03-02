@@ -91,8 +91,6 @@
 &lt;li&gt;通过 &lt;strong&gt;Hugo 内联 CSP 策略&lt;/strong&gt;，禁止不安全脚本加载&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&#34;附件&#34;&gt;附件&lt;/h2&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h2 id=&#34;可能有用的参考资料&#34;&gt;可能有用的参考资料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt;
@@ -108,6 +106,9 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;附件&#34;&gt;附件&lt;/h3&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
