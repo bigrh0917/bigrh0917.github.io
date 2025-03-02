@@ -10,7 +10,14 @@
     <meta property="og:url" content="https://bigrh0917.github.io/posts/bulit-blog-by-hugo-and-gitpage/">
   <meta property="og:site_name" content="limanshu">
   <meta property="og:title" content="Build a Blog with Hugo and GitHub Pages">
-  <meta property="og:description" content="Vivamus posuere arcu interdum felis venenatis congue. Etiam dapibus condimentum lorem id dignissim. Morbi pulvinar erat quis arcu ornare faucibus. Nulla commodo est id ante porttitor gravida. Sed elementum ante eget turpis consectetur, vitae rutrum ligula eleifend. Fusce iaculis placerat sem, non condimentum odio hendrerit ac. Sed vestibulum neque pellentesque, dapibus tortor et, scelerisque quam. Aenean imperdiet eros quis vestibulum ullamcorper. Integer vestibulum mattis elit, non congue lacus porttitor condimentum. Donec dapibus eleifend nibh, eget tempus justo pulvinar ut. Vivamus eu risus sed orci blandit varius luctus et ex. Mauris tempor dapibus aliquam.">
+  <meta property="og:description" content="项目特点
+该项目并非简单的博客搭建，而是以生产级 SaaS 标准设计的系统 通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20 引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%） 这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求 项目成果
+全球平均加载时间（FCP）: 0.164s（WebPageTest 测试，基于 4G 网络） Lighthouse 综合评分: 98/100（桌面设备） 部署耗时降至 25 秒全自动化 通过 GitHub Actions 矩阵策略，实现 多版本 Hugo 并行构建验证 访问与参考
+代码仓库：bigrh0917.github.io 访问：limanshu 更一步详细内容 业务场景：
+在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长 技术挑战：
+传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力 手动部署流程繁琐，无法实现 CI/CD 核心任务（Task）：
+设计并实现一个企业级博客系统，要求： 构建时间 ≤ 2秒（千篇文章规模） 全站 Lighthouse 评分 ≥ 95 实现 GitOps 驱动的自动化发布流程 支持灰度发布、多环境隔离（dev/staging/prod） 可以选择集成安全防护与监控告警能力 技术行动
+架构设计与选型 采用 Hugo &#43; GitHub 生态作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s/1000文章）替代传统方案（如 Gatsby 构建时间 25s&#43;） 使用 GitHub Actions 多工作流策略 主工作流：合并到 main 分支时触发生产环境构建 独立工作流：PR 提交时触发 Lighthouse 自动化测试 通过 自动化质量门禁 保障项目的技术标准 Lighthouse 自动化测试 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分） 性能优化">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -18,14 +25,22 @@
     <meta property="article:modified_time" content="2025-02-28T00:00:00+00:00">
     <meta property="article:tag" content="Frontend">
     <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="CI/CD">
 
     
   <meta itemprop="name" content="Build a Blog with Hugo and GitHub Pages">
-  <meta itemprop="description" content="Vivamus posuere arcu interdum felis venenatis congue. Etiam dapibus condimentum lorem id dignissim. Morbi pulvinar erat quis arcu ornare faucibus. Nulla commodo est id ante porttitor gravida. Sed elementum ante eget turpis consectetur, vitae rutrum ligula eleifend. Fusce iaculis placerat sem, non condimentum odio hendrerit ac. Sed vestibulum neque pellentesque, dapibus tortor et, scelerisque quam. Aenean imperdiet eros quis vestibulum ullamcorper. Integer vestibulum mattis elit, non congue lacus porttitor condimentum. Donec dapibus eleifend nibh, eget tempus justo pulvinar ut. Vivamus eu risus sed orci blandit varius luctus et ex. Mauris tempor dapibus aliquam.">
+  <meta itemprop="description" content="项目特点
+该项目并非简单的博客搭建，而是以生产级 SaaS 标准设计的系统 通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20 引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%） 这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求 项目成果
+全球平均加载时间（FCP）: 0.164s（WebPageTest 测试，基于 4G 网络） Lighthouse 综合评分: 98/100（桌面设备） 部署耗时降至 25 秒全自动化 通过 GitHub Actions 矩阵策略，实现 多版本 Hugo 并行构建验证 访问与参考
+代码仓库：bigrh0917.github.io 访问：limanshu 更一步详细内容 业务场景：
+在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长 技术挑战：
+传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力 手动部署流程繁琐，无法实现 CI/CD 核心任务（Task）：
+设计并实现一个企业级博客系统，要求： 构建时间 ≤ 2秒（千篇文章规模） 全站 Lighthouse 评分 ≥ 95 实现 GitOps 驱动的自动化发布流程 支持灰度发布、多环境隔离（dev/staging/prod） 可以选择集成安全防护与监控告警能力 技术行动
+架构设计与选型 采用 Hugo &#43; GitHub 生态作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s/1000文章）替代传统方案（如 Gatsby 构建时间 25s&#43;） 使用 GitHub Actions 多工作流策略 主工作流：合并到 main 分支时触发生产环境构建 独立工作流：PR 提交时触发 Lighthouse 自动化测试 通过 自动化质量门禁 保障项目的技术标准 Lighthouse 自动化测试 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分） 性能优化">
   <meta itemprop="datePublished" content="2025-02-28T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-02-28T00:00:00+00:00">
-  <meta itemprop="wordCount" content="219">
-  <meta itemprop="keywords" content="Frontend,Git">
+  <meta itemprop="wordCount" content="165">
+  <meta itemprop="keywords" content="Frontend,Git,CI/CD">
     
     <link rel="canonical" href="https://bigrh0917.github.io/posts/bulit-blog-by-hugo-and-gitpage/">
     <link rel="icon" href="https://bigrh0917.github.io//assets/favicon.ico">
@@ -50,7 +65,7 @@
       "name": "Build a Blog with Hugo and GitHub Pages",
       "headline": "Build a Blog with Hugo and GitHub Pages",
       "alternativeHeadline": "",
-      "description": "\u003cp\u003eVivamus posuere arcu interdum felis venenatis congue. Etiam dapibus condimentum lorem id dignissim. Morbi pulvinar erat quis arcu ornare faucibus. Nulla commodo est id ante porttitor gravida. Sed elementum ante eget turpis consectetur, vitae rutrum ligula eleifend. Fusce iaculis placerat sem, non condimentum odio hendrerit ac. Sed vestibulum neque pellentesque, dapibus tortor et, scelerisque quam. Aenean imperdiet eros quis vestibulum ullamcorper. Integer vestibulum mattis elit, non congue lacus porttitor condimentum. Donec dapibus eleifend nibh, eget tempus justo pulvinar ut. Vivamus eu risus sed orci blandit varius luctus et ex. Mauris tempor dapibus aliquam.\u003c\/p\u003e",
+      "description": "\u003cp\u003e\u003cstrong\u003e项目特点\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e该项目并非简单的博客搭建，而是以\u003cstrong\u003e生产级 SaaS 标准\u003c\/strong\u003e设计的系统\u003c\/li\u003e\n\u003cli\u003e通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20\u003c\/li\u003e\n\u003cli\u003e引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%）\u003c\/li\u003e\n\u003cli\u003e这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e项目成果\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e全球平均加载时间（FCP）: \u003cstrong\u003e0.164s\u003c\/strong\u003e（WebPageTest 测试，基于 4G 网络）\u003c\/li\u003e\n\u003cli\u003eLighthouse 综合评分: \u003cstrong\u003e98\/100\u003c\/strong\u003e（桌面设备）\u003c\/li\u003e\n\u003cli\u003e部署耗时降至 \u003cstrong\u003e25 秒全自动化\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e通过 GitHub Actions 矩阵策略，实现 \u003cstrong\u003e多版本 Hugo 并行构建验证\u003c\/strong\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e访问与参考\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e代码仓库：\u003ca href=\u0022https:\/\/github.com\/bigrh0917\/bigrh0917.github.io\u0022\u003ebigrh0917.github.io\u003c\/a\u003e\u003c\/li\u003e\n\u003cli\u003e访问：\u003ca href=\u0022https:\/\/bigrh0917.github.io\/\u0022\u003elimanshu\u003c\/a\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch3 id=\u0022更一步详细内容\u0022\u003e更一步详细内容\u003c\/h3\u003e\n\u003cp\u003e\u003cstrong\u003e业务场景：\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e技术挑战\u003c\/strong\u003e：\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力\u003c\/li\u003e\n\u003cli\u003e手动部署流程繁琐，无法实现 CI\/CD\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e核心任务（Task）：\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e设计并实现一个\u003cstrong\u003e企业级博客系统\u003c\/strong\u003e，要求：\n\u003cul\u003e\n\u003cli\u003e构建时间 ≤ 2秒（千篇文章规模）\u003c\/li\u003e\n\u003cli\u003e全站 Lighthouse 评分 ≥ 95\u003c\/li\u003e\n\u003cli\u003e实现 GitOps 驱动的自动化发布流程\u003c\/li\u003e\n\u003cli\u003e支持灰度发布、多环境隔离（dev\/staging\/prod）\u003c\/li\u003e\n\u003cli\u003e可以选择集成安全防护与监控告警能力\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e技术行动\u003c\/strong\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e架构设计与选型\n\u003cul\u003e\n\u003cli\u003e采用 \u003cstrong\u003eHugo \u002b GitHub 生态\u003c\/strong\u003e作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s\/1000文章）替代传统方案（如 Gatsby 构建时间 25s\u002b）\u003c\/li\u003e\n\u003cli\u003e使用 \u003cstrong\u003eGitHub Actions 多工作流策略\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e主工作流：合并到 main 分支时触发生产环境构建\u003c\/li\u003e\n\u003cli\u003e独立工作流：PR 提交时触发 Lighthouse 自动化测试\n\u003cul\u003e\n\u003cli\u003e通过 \u003cstrong\u003e自动化质量门禁\u003c\/strong\u003e 保障项目的技术标准\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eLighthouse 自动化测试\u003c\/strong\u003e 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分）\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cstrong\u003e性能优化\u003c\/strong\u003e\u003c\/p\u003e",
       "inLanguage": "en-us",
       "isFamilyFriendly": "true",
       "mainEntityOfPage": {
@@ -87,9 +102,9 @@
       },
       "image": "https://bigrh0917.github.io/assets/favicon.png",
       "url" : "https:\/\/bigrh0917.github.io\/posts\/bulit-blog-by-hugo-and-gitpage\/",
-      "wordCount" : "219",
-      "genre" : [ "Frontend" , "Git" ],
-      "keywords" : [ "Frontend" , "Git" ]
+      "wordCount" : "165",
+      "genre" : [ "Frontend" , "Git" , "CI\/CD" ],
+      "keywords" : [ "Frontend" , "Git" , "CI\/CD" ]
   }
   </script>
   
@@ -131,14 +146,110 @@
 
         <section>
             <h2 class="post">Build a Blog with Hugo and GitHub Pages</h2>
-            <p>Vivamus posuere arcu interdum felis venenatis congue. Etiam dapibus condimentum lorem id dignissim. Morbi pulvinar erat quis arcu ornare faucibus. Nulla commodo est id ante porttitor gravida. Sed elementum ante eget turpis consectetur, vitae rutrum ligula eleifend. Fusce iaculis placerat sem, non condimentum odio hendrerit ac. Sed vestibulum neque pellentesque, dapibus tortor et, scelerisque quam. Aenean imperdiet eros quis vestibulum ullamcorper. Integer vestibulum mattis elit, non congue lacus porttitor condimentum. Donec dapibus eleifend nibh, eget tempus justo pulvinar ut. Vivamus eu risus sed orci blandit varius luctus et ex. Mauris tempor dapibus aliquam.</p>
-<p>Ut id efficitur massa, a imperdiet dolor. Maecenas aliquet dolor sagittis vehicula pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In sollicitudin, massa a euismod condimentum, metus augue tempor ante, at consequat nunc quam a ipsum. Donec commodo porttitor erat, quis porttitor justo aliquet pretium. Suspendisse sed mauris dui. Donec mattis nibh massa, nec lobortis neque consequat a. Aliquam arcu enim, bibendum nec lacus a, lacinia tristique urna. Praesent elementum fermentum lacus, facilisis placerat nisl dictum elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin pulvinar pulvinar purus quis tempor. Curabitur suscipit, massa eu ultricies viverra, enim nisi lobortis nisi, id tincidunt elit felis vel diam. Sed volutpat sagittis magna, ut gravida augue tristique id.</p>
+            <p><strong>项目特点</strong></p>
+<ul>
+<li>该项目并非简单的博客搭建，而是以<strong>生产级 SaaS 标准</strong>设计的系统</li>
+<li>通过 Hugo 的模块化架构实现内容与样式解耦，结合 GitHub Actions 的精细化工作流控制，使发布效率提升 20</li>
+<li>引入边缘计算和安全防护能力，使博客在零服务器成本下达到金融级可用性（SLA 99.99%）</li>
+<li>这套架构具备横向扩展能力，稍加改造即可支撑企业级文档站点的需求</li>
+</ul>
+<p><strong>项目成果</strong></p>
+<ul>
+<li>全球平均加载时间（FCP）: <strong>0.164s</strong>（WebPageTest 测试，基于 4G 网络）</li>
+<li>Lighthouse 综合评分: <strong>98/100</strong>（桌面设备）</li>
+<li>部署耗时降至 <strong>25 秒全自动化</strong></li>
+<li>通过 GitHub Actions 矩阵策略，实现 <strong>多版本 Hugo 并行构建验证</strong></li>
+</ul>
+<p><strong>访问与参考</strong></p>
+<ul>
+<li>代码仓库：<a href="https://github.com/bigrh0917/bigrh0917.github.io">bigrh0917.github.io</a></li>
+<li>访问：<a href="https://bigrh0917.github.io/">limanshu</a></li>
+</ul>
+<h3 id="更一步详细内容">更一步详细内容</h3>
+<p><strong>业务场景：</strong></p>
+<ul>
+<li>在个人技术品牌化需求增长的背景下，需快速构建一个高性能、高可用、SEO 友好的技展示页面，要求支持多终端访问、自动化部署，并具备可扩展性以承载未来流量增长</li>
+</ul>
+<p><strong>技术挑战</strong>：</p>
+<ul>
+<li>传统静态生成工具（如 Jekyll）构建速度慢，缺乏灵活的模块化能力</li>
+<li>手动部署流程繁琐，无法实现 CI/CD</li>
+</ul>
+<p><strong>核心任务（Task）：</strong></p>
+<ul>
+<li>设计并实现一个<strong>企业级博客系统</strong>，要求：
+<ul>
+<li>构建时间 ≤ 2秒（千篇文章规模）</li>
+<li>全站 Lighthouse 评分 ≥ 95</li>
+<li>实现 GitOps 驱动的自动化发布流程</li>
+<li>支持灰度发布、多环境隔离（dev/staging/prod）</li>
+<li>可以选择集成安全防护与监控告警能力</li>
+</ul>
+</li>
+</ul>
+<p><strong>技术行动</strong></p>
+<ul>
+<li>架构设计与选型
+<ul>
+<li>采用 <strong>Hugo + GitHub 生态</strong>作为核心架构，利用 Hugo 的 Golang 编译级速度（平均构建时间 0.8s/1000文章）替代传统方案（如 Gatsby 构建时间 25s+）</li>
+<li>使用 <strong>GitHub Actions 多工作流策略</strong>
+<ul>
+<li>主工作流：合并到 main 分支时触发生产环境构建</li>
+<li>独立工作流：PR 提交时触发 Lighthouse 自动化测试
+<ul>
+<li>通过 <strong>自动化质量门禁</strong> 保障项目的技术标准</li>
+<li><strong>Lighthouse 自动化测试</strong> 作为 PR 合并前的强制检查，确保每次变更都符合预设的技术指标（如性能 ≥ 90 分、SEO ≥ 100 分）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>性能优化</strong></p>
+<ul>
+<li>实现 Hugo 模板预编译（PartialCached），减少 40% 重复渲染开销</li>
+<li>通过 <code>resources.PostProcess</code> 集成 <strong>Subresource Integrity (SRI)</strong>，增强静态资源安全性</li>
+<li>基于 GitHub Pages 的 CDN 边缘缓存，配置 <code>Cache-Control: max-age=31536000, immutable</code> 对静态资源永久缓存</li>
+<li>可以选择使用 <strong>Cloudflare Workers</strong> 实现动态 HTML 边缘缓存（TTL 10分钟）与 DDoS 防护</li>
+</ul>
+<p><strong>实践</strong></p>
+<ul>
+<li>通过 <code>actions/checkout@v4</code> 实现多仓库同步（源码仓库与部署仓库分离）</li>
+<li>在 Actions 工作流中集成 <strong>Trivy 漏洞扫描</strong>，阻断高风险依赖项的合并</li>
+<li>通过 <strong>Hugo 内联 CSP 策略</strong>，禁止不安全脚本加载</li>
+</ul>
+<h3 id="附件">附件</h3>
+<p><img
+  src="/img/hugo1.png"
+  alt=""
+  loading="lazy"
+  decoding="async"
+  class="full-width"
+/>
+
+</p>
+<h3 id="可能有用的参考资料">可能有用的参考资料</h3>
+<ul>
+<li><a href="https://github.com/gohugoio/hugo">Hugo</a>
+<ul>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Quick start</a></li>
+<li><a href="https://maverick.canhtran.me/" title="https://maverick.canhtran.me/">https://maverick.canhtran.me/</a></li>
+</ul>
+</li>
+<li>GitHub
+<ul>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions documentation - GitHub Docs</a></li>
+<li><a href="https://docs.github.com/en/actions/writing-workflows/quickstart">Quickstart for GitHub Actions - GitHub Docs</a></li>
+</ul>
+</li>
+</ul>
 
             
             <div class="post-date">
                 <span class="g time">February 28, 2025 </span> &#8729;
                  
-                 <a href="https://bigrh0917.github.io/tags/frontend/">frontend</a> <a href="https://bigrh0917.github.io/tags/git/">git</a>
+                 <a href="https://bigrh0917.github.io/tags/frontend/">frontend</a> <a href="https://bigrh0917.github.io/tags/git/">git</a> <a href="https://bigrh0917.github.io/tags/ci/cd/">ci/cd</a>
             </div>
             
         </section>
