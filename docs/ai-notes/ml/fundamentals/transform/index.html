@@ -1,0 +1,92 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Transformer | Yuchen Li</title><meta name=description content="Transformer# The Transformer is an architecture proposed by Google in 2017 in “Attention Is All You Need”. It is built entirely on self-attention, dropping RNNs and CNNs, and has become the foundation of modern NLP and large models.
+1. What It Is# The Transformer is a sequence-to-sequence (Seq2Seq) model architecture. Its core is self-attention, which processes the relationships between all positions in a sequence in parallel.
+Key characteristics:
+Parallel computation: unlike RNNs, which process tokens step by step, it handles the whole sequence at once Long-range dependencies: attention is computed directly between any two positions, with no information decay Scalability: stacking more layers and adding parameters improves capability (GPT, BERT, etc.) Overall architecture:
+"><link rel=canonical href=https://bigrh0917.github.io/docs/ai-notes/ml/fundamentals/transform/><meta property="og:type" content="article"><meta property="og:title" content="Transformer | Yuchen Li"><meta property="og:description" content="Transformer# The Transformer is an architecture proposed by Google in 2017 in “Attention Is All You Need”. It is built entirely on self-attention, dropping RNNs and CNNs, and has become the foundation of modern NLP and large models.
+1. What It Is# The Transformer is a sequence-to-sequence (Seq2Seq) model architecture. Its core is self-attention, which processes the relationships between all positions in a sequence in parallel.
+Key characteristics:
+Parallel computation: unlike RNNs, which process tokens step by step, it handles the whole sequence at once Long-range dependencies: attention is computed directly between any two positions, with no information decay Scalability: stacking more layers and adding parameters improves capability (GPT, BERT, etc.) Overall architecture:
+"><meta property="og:url" content="https://bigrh0917.github.io/docs/ai-notes/ml/fundamentals/transform/"><meta property="og:image" content="https://bigrh0917.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name=twitter:card content="summary_large_image"><meta name=theme-color content="#ffffff"><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preload href=/fonts/bricolage-grotesque-latin.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/book/docs.min.d71e236a59f9ecca2124bb079fec8b1ad83787fe59a0fb841dce79f8b6b20293.css><script defer src=/book/search.min.155a8bb70ae6fe089509d11843d5e0985a44d4139ce02cdbbbe178663914f5a9.js></script></head><body><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><a class=brand href=/><b>Yuchen Li <i class=cursor>▮</i></b>
+<span>Personal portfolio</span></a><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li class=book-section-flat><a>AI Notes</a><ul><li><input type=checkbox id=section-1f6475d8120e260a753fdf37ad989068 class=toggle checked>
+<label for=section-1f6475d8120e260a753fdf37ad989068 class=flex><a role=button>ML</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><input type=checkbox id=section-b6ba4f3bcab514fde36e9783a56d4961 class=toggle checked>
+<label for=section-b6ba4f3bcab514fde36e9783a56d4961 class=flex><a role=button>Fundamentals</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/ml/fundamentals/transform/ class=active>Transformer</a></li><li><a href=/docs/ai-notes/ml/fundamentals/word2vec/>Word2Vec</a></li></ul></li><li><input type=checkbox id=section-eb8d7510011b4a5b78c30bb3fba4d1fd class=toggle>
+<label for=section-eb8d7510011b4a5b78c30bb3fba4d1fd class=flex><a role=button>Models</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><input type=checkbox id=section-d38e1231f3337a8e93d560ff4191f7fd class=toggle>
+<label for=section-d38e1231f3337a8e93d560ff4191f7fd class=flex><a role=button>DeepSeek</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/ml/models/deepseek/deepseekocr-2/>DeepSeek-OCR 2</a></li></ul></li><li><input type=checkbox id=section-08459596a4f474c9fa6769d897c381aa class=toggle>
+<label for=section-08459596a4f474c9fa6769d897c381aa class=flex><a role=button>Qwen</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/ml/models/qwen/qwen-3/>Qwen 3</a></li></ul></li></ul></li></ul></li><li><input type=checkbox id=section-bd81477c8019236afdaea0ae07c9ff3b class=toggle>
+<label for=section-bd81477c8019236afdaea0ae07c9ff3b class=flex><a role=button>CS</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><input type=checkbox id=section-ad9b1199000ac7d566a2d8a1676ba516 class=toggle>
+<label for=section-ad9b1199000ac7d566a2d8a1676ba516 class=flex><a role=button>Engineering</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/cs/engineering/mcp/>MCP</a></li><li><a href=/docs/ai-notes/cs/engineering/dify/>Dify</a></li></ul></li></ul></li></ul></li><li class=book-section-flat><a>Projects</a><ul><li><a href=/docs/projects/manshu-llm/>Manshu LLM</a></li><li><a href=/docs/projects/manshu-rag/>Manshu RAG</a></li><li><a href=/docs/projects/manshu-finetune/>Manshu Finetune</a></li></ul></li></ul><p class=copy>© Yuchen Li 2024 &ndash; <span data-year>2026</span></p></nav><script>for(const e of document.querySelectorAll("[data-year]"))e.textContent=(new Date).getFullYear()</script><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("pagehide",function(){try{localStorage.setItem("menu.scrollTop",e.scrollTop)}catch{}});try{e.scrollTop=localStorage.getItem("menu.scrollTop")||0}catch{}})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22M160-240q-17%200-28.5-11.5T120-280t11.5-28.5T160-320h640q17%200%2028.5%2011.5T840-280t-11.5%2028.5T8e2-240H160zm0-2e2q-17%200-28.5-11.5T120-480t11.5-28.5T160-520h640q17%200%2028.5%2011.5T840-480t-11.5%2028.5T8e2-440H160zm0-2e2q-17%200-28.5-11.5T120-680t11.5-28.5T160-720h640q17%200%2028.5%2011.5T840-680t-11.5%2028.5T8e2-640H160z%22/%3E%3C/svg%3E" class=book-icon alt=Menu></label><h3>Transformer</h3><label for=toc-control><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22M160-280q-17%200-28.5-11.5T120-320t11.5-28.5T160-360h480q17%200%2028.5%2011.5T680-320t-11.5%2028.5T640-280H160zm0-160q-17%200-28.5-11.5T120-480t11.5-28.5T160-520h480q17%200%2028.5%2011.5T680-480t-11.5%2028.5T640-440H160zm0-160q-17%200-28.5-11.5T120-640t11.5-28.5T160-680h480q17%200%2028.5%2011.5T680-640t-11.5%2028.5T640-6e2H160zm640%20320q-17%200-28.5-11.5T760-320t11.5-28.5T8e2-360t28.5%2011.5T840-320t-11.5%2028.5T8e2-280zm0-160q-17%200-28.5-11.5T760-480t11.5-28.5T8e2-520t28.5%2011.5T840-480t-11.5%2028.5T8e2-440zm0-160q-17%200-28.5-11.5T760-640t11.5-28.5T8e2-680t28.5%2011.5T840-640t-11.5%2028.5T8e2-6e2z%22/%3E%3C/svg%3E" class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#1-what-it-is>1. What It Is</a></li><li><a href=#2-how-to-use-it>2. How to Use It</a><ul><li><a href=#using-hugging-face-transformers>Using Hugging Face Transformers</a></li><li><a href=#common-task-examples>Common Task Examples</a></li><li><a href=#common-pretrained-models>Common Pretrained Models</a></li></ul></li><li><a href=#further-reading>Further Reading</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=transformer>Transformer<a class=anchor href=#transformer>#</a></h1><p>The Transformer is an architecture proposed by Google in 2017 in &ldquo;Attention Is All You Need&rdquo;. It is built entirely on self-attention, dropping RNNs and CNNs, and has become the foundation of modern NLP and large models.</p><hr><h2 id=1-what-it-is>1. What It Is<a class=anchor href=#1-what-it-is>#</a></h2><p>The Transformer is a <strong>sequence-to-sequence (Seq2Seq)</strong> model architecture. Its core is <strong>self-attention</strong>, which processes the relationships between all positions in a sequence in parallel.</p><p><strong>Key characteristics:</strong></p><ul><li><strong>Parallel computation</strong>: unlike RNNs, which process tokens step by step, it handles the whole sequence at once</li><li><strong>Long-range dependencies</strong>: attention is computed directly between any two positions, with no information decay</li><li><strong>Scalability</strong>: stacking more layers and adding parameters improves capability (GPT, BERT, etc.)</li></ul><p><strong>Overall architecture:</strong></p><pre class=mermaid>
+graph LR
+    subgraph Encoder
+        A[Input Embedding] --&gt; B[&#34;#43; Positional Encoding&#34;]
+        B --&gt; C[Multi-Head Attention]
+        C --&gt; D[Add &amp; Norm]
+        D --&gt; E[Feed Forward]
+        E --&gt; F[Add &amp; Norm]
+    end
+    subgraph Decoder
+        G[Output Embedding] --&gt; H[&#34;#43; Positional Encoding&#34;]
+        H --&gt; I[Masked Multi-Head Attention]
+        I --&gt; J[Add &amp; Norm]
+        J --&gt; K[Cross Attention]
+        K --&gt; L[Add &amp; Norm]
+        L --&gt; M[Feed Forward]
+        M --&gt; N[Add &amp; Norm]
+    end
+    F --&gt; K
+    N --&gt; O[Linear + Softmax]
+</pre><script defer src=/mermaid.min.js onload='mermaid.initialize({flowchart:{useMaxWidth:!0},theme:"default",themeVariables:{fontFamily:"Bricolage Grotesque, -apple-system, BlinkMacSystemFont, PingFang SC, sans-serif"}})'></script><p><strong>Core components:</strong></p><table><thead><tr><th>Component</th><th>Role</th></tr></thead><tbody><tr><td><strong>Self-Attention</strong></td><td>Computes association weights between each position and every other position in the sequence</td></tr><tr><td><strong>Multi-Head</strong></td><td>Runs several attention heads in parallel to capture features in different subspaces</td></tr><tr><td><strong>Positional Encoding</strong></td><td>Injects position information (sinusoidal or learned)</td></tr><tr><td><strong>Feed Forward</strong></td><td>Two fully connected layers + activation, applied position-wise</td></tr><tr><td><strong>Add & Norm</strong></td><td>Residual connection + LayerNorm, stabilizes training</td></tr></tbody></table><p><strong>Three variants:</strong></p><table><thead><tr><th>Type</th><th>Representative models</th><th>Structure</th><th>Typical tasks</th></tr></thead><tbody><tr><td><strong>Encoder-only</strong></td><td>BERT</td><td>Encoder only</td><td>Classification, NER, sentence similarity</td></tr><tr><td><strong>Decoder-only</strong></td><td>GPT, LLaMA</td><td>Decoder only</td><td>Text generation, dialogue</td></tr><tr><td><strong>Encoder-Decoder</strong></td><td>T5, BART</td><td>Full structure</td><td>Translation, summarization</td></tr></tbody></table><hr><h2 id=2-how-to-use-it>2. How to Use It<a class=anchor href=#2-how-to-use-it>#</a></h2><h3 id=using-hugging-face-transformers>Using Hugging Face Transformers<a class=anchor href=#using-hugging-face-transformers>#</a></h3><pre><code class=language-python>from transformers import AutoTokenizer, AutoModel, AutoModelForCausalLM
+
+# ========== Encoder model (e.g. BERT) ==========
+tokenizer = AutoTokenizer.from_pretrained(&quot;bert-base-chinese&quot;)
+model = AutoModel.from_pretrained(&quot;bert-base-chinese&quot;)
+
+text = &quot;The Transformer is the foundation of modern NLP&quot;
+inputs = tokenizer(text, return_tensors=&quot;pt&quot;)
+outputs = model(**inputs)
+
+# Token embeddings (batch_size, seq_len, hidden_size)
+last_hidden = outputs.last_hidden_state
+
+# Sentence embedding (the [CLS] position)
+sentence_embedding = last_hidden[:, 0, :]
+
+
+# ========== Decoder model (e.g. GPT) ==========
+tokenizer = AutoTokenizer.from_pretrained(&quot;gpt2&quot;)
+model = AutoModelForCausalLM.from_pretrained(&quot;gpt2&quot;)
+
+inputs = tokenizer(&quot;Once upon a time&quot;, return_tensors=&quot;pt&quot;)
+outputs = model.generate(**inputs, max_new_tokens=50)
+
+print(tokenizer.decode(outputs[0]))
+</code></pre><h3 id=common-task-examples>Common Task Examples<a class=anchor href=#common-task-examples>#</a></h3><pre><code class=language-python>from transformers import pipeline
+
+# Text classification
+classifier = pipeline(&quot;sentiment-analysis&quot;)
+classifier(&quot;I love this movie!&quot;)  # [{'label': 'POSITIVE', 'score': 0.99}]
+
+# Text generation
+generator = pipeline(&quot;text-generation&quot;, model=&quot;gpt2&quot;)
+generator(&quot;The future of AI is&quot;, max_length=50)
+
+# Question answering
+qa = pipeline(&quot;question-answering&quot;)
+qa(question=&quot;What is Transformer?&quot;, context=&quot;Transformer is a neural network architecture.&quot;)
+
+# Translation
+translator = pipeline(&quot;translation_en_to_zh&quot;, model=&quot;Helsinki-NLP/opus-mt-en-zh&quot;)
+translator(&quot;Hello, world!&quot;)
+
+# Fill in the blank
+fill = pipeline(&quot;fill-mask&quot;, model=&quot;bert-base-chinese&quot;)
+fill(&quot;The weather is really [MASK] today&quot;)
+</code></pre><h3 id=common-pretrained-models>Common Pretrained Models<a class=anchor href=#common-pretrained-models>#</a></h3><table><thead><tr><th>Model</th><th>Type</th><th>Parameters</th><th>Highlights</th></tr></thead><tbody><tr><td>BERT</td><td>Encoder</td><td>110M/340M</td><td>Bidirectional encoding, suited to understanding tasks</td></tr><tr><td>GPT-2</td><td>Decoder</td><td>117M-1.5B</td><td>Autoregressive generation</td></tr><tr><td>T5</td><td>Enc-Dec</td><td>60M-11B</td><td>Unified text-to-text format</td></tr><tr><td>LLaMA</td><td>Decoder</td><td>7B-70B</td><td>Open source and efficient, today&rsquo;s mainstream base model</td></tr><tr><td>Qwen</td><td>Decoder</td><td>0.5B-72B</td><td>Strong in both Chinese and English</td></tr><tr><td>ChatGLM</td><td>Decoder</td><td>6B-130B</td><td>Optimized for Chinese dialogue</td></tr></tbody></table><hr><h2 id=further-reading>Further Reading<a class=anchor href=#further-reading>#</a></h2><ul><li><strong>Attention formula</strong>: $\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$</li><li><strong>Positional encoding</strong>: the original uses sinusoidal encoding; modern models mostly use RoPE (Rotary Position Embedding)</li><li><strong>Optimized variants</strong>: FlashAttention (memory optimization), GQA (Grouped-Query Attention), sliding window</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><span></span><span><a href=/docs/ai-notes/ml/fundamentals/word2vec/ class="flex align-center"><span>Word2Vec</span>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22M647-440H2e2q-17%200-28.5-11.5T160-480t11.5-28.5T2e2-520h447L451-716q-12-12-11.5-28t12.5-28q12-11%2028-11.5t28%2011.5l264%20264q6%206%208.5%2013t2.5%2015-2.5%2015-8.5%2013L508-188q-11%2011-27.5%2011T452-188q-12-12-12-28.5t12-28.5l195-195z%22/%3E%3C/svg%3E" class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#1-what-it-is>1. What It Is</a></li><li><a href=#2-how-to-use-it>2. How to Use It</a><ul><li><a href=#using-hugging-face-transformers>Using Hugging Face Transformers</a></li><li><a href=#common-task-examples>Common Task Examples</a></li><li><a href=#common-pretrained-models>Common Pretrained Models</a></li></ul></li><li><a href=#further-reading>Further Reading</a></li></ul></nav></div></aside></main></body></html>

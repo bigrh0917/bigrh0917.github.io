@@ -1,0 +1,163 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>MCP | Yuchen Li</title><meta name=description content="MCP (Model Context Protocol)# MCP is an open protocol released by Anthropic in 2024 for connecting LLMs to external tools and data sources. It standardizes how “AI calls tools.”
+1. What It Is# MCP (Model Context Protocol) is an open standard protocol that defines how LLM applications communicate with external services, much like a “USB protocol” for AI.
+Core concepts:
+Concept Description Host The LLM application that initiates requests (e.g. Claude Desktop, Cursor) Client The MCP client inside the Host; manages connections to Servers Server The service that provides tools/resources (e.g. file system, database, API) Three capabilities:
+"><link rel=canonical href=https://bigrh0917.github.io/docs/ai-notes/cs/engineering/mcp/><meta property="og:type" content="article"><meta property="og:title" content="MCP | Yuchen Li"><meta property="og:description" content="MCP (Model Context Protocol)# MCP is an open protocol released by Anthropic in 2024 for connecting LLMs to external tools and data sources. It standardizes how “AI calls tools.”
+1. What It Is# MCP (Model Context Protocol) is an open standard protocol that defines how LLM applications communicate with external services, much like a “USB protocol” for AI.
+Core concepts:
+Concept Description Host The LLM application that initiates requests (e.g. Claude Desktop, Cursor) Client The MCP client inside the Host; manages connections to Servers Server The service that provides tools/resources (e.g. file system, database, API) Three capabilities:
+"><meta property="og:url" content="https://bigrh0917.github.io/docs/ai-notes/cs/engineering/mcp/"><meta property="og:image" content="https://bigrh0917.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name=twitter:card content="summary_large_image"><meta name=theme-color content="#ffffff"><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preload href=/fonts/bricolage-grotesque-latin.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/book/docs.min.d71e236a59f9ecca2124bb079fec8b1ad83787fe59a0fb841dce79f8b6b20293.css><script defer src=/book/search.min.155a8bb70ae6fe089509d11843d5e0985a44d4139ce02cdbbbe178663914f5a9.js></script></head><body><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><a class=brand href=/><b>Yuchen Li <i class=cursor>▮</i></b>
+<span>Personal portfolio</span></a><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li class=book-section-flat><a>AI Notes</a><ul><li><input type=checkbox id=section-1f6475d8120e260a753fdf37ad989068 class=toggle>
+<label for=section-1f6475d8120e260a753fdf37ad989068 class=flex><a role=button>ML</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><input type=checkbox id=section-b6ba4f3bcab514fde36e9783a56d4961 class=toggle>
+<label for=section-b6ba4f3bcab514fde36e9783a56d4961 class=flex><a role=button>Fundamentals</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/ml/fundamentals/transform/>Transformer</a></li><li><a href=/docs/ai-notes/ml/fundamentals/word2vec/>Word2Vec</a></li></ul></li><li><input type=checkbox id=section-eb8d7510011b4a5b78c30bb3fba4d1fd class=toggle>
+<label for=section-eb8d7510011b4a5b78c30bb3fba4d1fd class=flex><a role=button>Models</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><input type=checkbox id=section-d38e1231f3337a8e93d560ff4191f7fd class=toggle>
+<label for=section-d38e1231f3337a8e93d560ff4191f7fd class=flex><a role=button>DeepSeek</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/ml/models/deepseek/deepseekocr-2/>DeepSeek-OCR 2</a></li></ul></li><li><input type=checkbox id=section-08459596a4f474c9fa6769d897c381aa class=toggle>
+<label for=section-08459596a4f474c9fa6769d897c381aa class=flex><a role=button>Qwen</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/ml/models/qwen/qwen-3/>Qwen 3</a></li></ul></li></ul></li></ul></li><li><input type=checkbox id=section-bd81477c8019236afdaea0ae07c9ff3b class=toggle checked>
+<label for=section-bd81477c8019236afdaea0ae07c9ff3b class=flex><a role=button>CS</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><input type=checkbox id=section-ad9b1199000ac7d566a2d8a1676ba516 class=toggle checked>
+<label for=section-ad9b1199000ac7d566a2d8a1676ba516 class=flex><a role=button>Engineering</a>
+<img src=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiIGZpbGw9IiMxZjFmMWYiPjxwYXRoIGQ9Ik01MDQtNDgwIDMyMC02NjRsNTYtNTYgMjQwIDI0MC0yNDAgMjQwLTU2LTU2IDE4NC0xODR6Ii8+PC9zdmc+ class=book-icon alt=Expand></label><ul><li><a href=/docs/ai-notes/cs/engineering/mcp/ class=active>MCP</a></li><li><a href=/docs/ai-notes/cs/engineering/dify/>Dify</a></li></ul></li></ul></li></ul></li><li class=book-section-flat><a>Projects</a><ul><li><a href=/docs/projects/manshu-llm/>Manshu LLM</a></li><li><a href=/docs/projects/manshu-rag/>Manshu RAG</a></li><li><a href=/docs/projects/manshu-finetune/>Manshu Finetune</a></li></ul></li></ul><p class=copy>© Yuchen Li 2024 &ndash; <span data-year>2026</span></p></nav><script>for(const e of document.querySelectorAll("[data-year]"))e.textContent=(new Date).getFullYear()</script><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("pagehide",function(){try{localStorage.setItem("menu.scrollTop",e.scrollTop)}catch{}});try{e.scrollTop=localStorage.getItem("menu.scrollTop")||0}catch{}})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22M160-240q-17%200-28.5-11.5T120-280t11.5-28.5T160-320h640q17%200%2028.5%2011.5T840-280t-11.5%2028.5T8e2-240H160zm0-2e2q-17%200-28.5-11.5T120-480t11.5-28.5T160-520h640q17%200%2028.5%2011.5T840-480t-11.5%2028.5T8e2-440H160zm0-2e2q-17%200-28.5-11.5T120-680t11.5-28.5T160-720h640q17%200%2028.5%2011.5T840-680t-11.5%2028.5T8e2-640H160z%22/%3E%3C/svg%3E" class=book-icon alt=Menu></label><h3>MCP</h3><label for=toc-control><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22M160-280q-17%200-28.5-11.5T120-320t11.5-28.5T160-360h480q17%200%2028.5%2011.5T680-320t-11.5%2028.5T640-280H160zm0-160q-17%200-28.5-11.5T120-480t11.5-28.5T160-520h480q17%200%2028.5%2011.5T680-480t-11.5%2028.5T640-440H160zm0-160q-17%200-28.5-11.5T120-640t11.5-28.5T160-680h480q17%200%2028.5%2011.5T680-640t-11.5%2028.5T640-6e2H160zm640%20320q-17%200-28.5-11.5T760-320t11.5-28.5T8e2-360t28.5%2011.5T840-320t-11.5%2028.5T8e2-280zm0-160q-17%200-28.5-11.5T760-480t11.5-28.5T8e2-520t28.5%2011.5T840-480t-11.5%2028.5T8e2-440zm0-160q-17%200-28.5-11.5T760-640t11.5-28.5T8e2-680t28.5%2011.5T840-640t-11.5%2028.5T8e2-6e2z%22/%3E%3C/svg%3E" class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#1-what-it-is>1. What It Is</a></li><li><a href=#2-using-existing-mcp-servers>2. Using Existing MCP Servers</a><ul><li><a href=#configuring-in-claude-desktop>Configuring in Claude Desktop</a></li><li><a href=#configuring-in-cursor>Configuring in Cursor</a></li><li><a href=#common-official-mcp-servers>Common Official MCP Servers</a></li><li><a href=#community-mcp-servers>Community MCP Servers</a></li></ul></li><li><a href=#3-building-your-own-mcp-server>3. Building Your Own MCP Server</a><ul><li><a href=#python-implementation-recommended>Python Implementation (Recommended)</a></li><li><a href=#typescript-implementation>TypeScript Implementation</a></li><li><a href=#registering-with-a-client>Registering with a Client</a></li><li><a href=#implementing-resources-optional>Implementing Resources (Optional)</a></li><li><a href=#debugging-tips>Debugging Tips</a></li></ul></li><li><a href=#further-reading>Further Reading</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=mcp-model-context-protocol>MCP (Model Context Protocol)<a class=anchor href=#mcp-model-context-protocol>#</a></h1><p>MCP is an open protocol released by Anthropic in 2024 for connecting LLMs to external tools and data sources. It standardizes how &ldquo;AI calls tools.&rdquo;</p><hr><h2 id=1-what-it-is>1. What It Is<a class=anchor href=#1-what-it-is>#</a></h2><p>MCP (Model Context Protocol) is an <strong>open standard protocol</strong> that defines how LLM applications communicate with external services, much like a &ldquo;USB protocol&rdquo; for AI.</p><p><strong>Core concepts:</strong></p><table><thead><tr><th>Concept</th><th>Description</th></tr></thead><tbody><tr><td><strong>Host</strong></td><td>The LLM application that initiates requests (e.g. Claude Desktop, Cursor)</td></tr><tr><td><strong>Client</strong></td><td>The MCP client inside the Host; manages connections to Servers</td></tr><tr><td><strong>Server</strong></td><td>The service that provides tools/resources (e.g. file system, database, API)</td></tr></tbody></table><p><strong>Three capabilities:</strong></p><table><thead><tr><th>Capability</th><th>Description</th><th>Examples</th></tr></thead><tbody><tr><td><strong>Tools</strong></td><td>Functions the LLM can call</td><td>Run SQL, send email, call an API</td></tr><tr><td><strong>Resources</strong></td><td>Data the LLM can read</td><td>File contents, database records</td></tr><tr><td><strong>Prompts</strong></td><td>Predefined prompt templates</td><td>Code review template, summary template</td></tr></tbody></table><p><strong>Architecture:</strong></p><pre class=mermaid>
+graph LR
+    A[LLM Host] --&gt; B[MCP Client]
+    B &lt;--&gt;|JSON-RPC| C[MCP Server 1: File System]
+    B &lt;--&gt;|JSON-RPC| D[MCP Server 2: Database]
+    B &lt;--&gt;|JSON-RPC| E[MCP Server 3: Web API]
+</pre><script defer src=/mermaid.min.js onload='mermaid.initialize({flowchart:{useMaxWidth:!0},theme:"default",themeVariables:{fontFamily:"Bricolage Grotesque, -apple-system, BlinkMacSystemFont, PingFang SC, sans-serif"}})'></script><p><strong>Why MCP:</strong></p><ul><li><strong>Unified standard</strong>: different tools share one protocol, so no per-LLM adapters are needed</li><li><strong>Security isolation</strong>: Servers run in separate processes with controllable permissions</li><li><strong>Ecosystem reuse</strong>: implement once, use everywhere (Claude, Cursor, custom apps)</li></ul><hr><h2 id=2-using-existing-mcp-servers>2. Using Existing MCP Servers<a class=anchor href=#2-using-existing-mcp-servers>#</a></h2><h3 id=configuring-in-claude-desktop>Configuring in Claude Desktop<a class=anchor href=#configuring-in-claude-desktop>#</a></h3><p>Edit the config file (macOS: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>, Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code>):</p><pre><code class=language-json>{
+  &quot;mcpServers&quot;: {
+    &quot;filesystem&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-filesystem&quot;, &quot;/path/to/allowed/dir&quot;]
+    },
+    &quot;sqlite&quot;: {
+      &quot;command&quot;: &quot;uvx&quot;,
+      &quot;args&quot;: [&quot;mcp-server-sqlite&quot;, &quot;--db-path&quot;, &quot;/path/to/database.db&quot;]
+    }
+  }
+}
+</code></pre><h3 id=configuring-in-cursor>Configuring in Cursor<a class=anchor href=#configuring-in-cursor>#</a></h3><p>Edit <code>.cursor/mcp.json</code> (project-level) or the global config:</p><pre><code class=language-json>{
+  &quot;mcpServers&quot;: {
+    &quot;github&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],
+      &quot;env&quot;: {
+        &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;your_token&quot;
+      }
+    }
+  }
+}
+</code></pre><h3 id=common-official-mcp-servers>Common Official MCP Servers<a class=anchor href=#common-official-mcp-servers>#</a></h3><table><thead><tr><th>Server</th><th>Install Command</th><th>Function</th></tr></thead><tbody><tr><td><strong>filesystem</strong></td><td><code>npx @modelcontextprotocol/server-filesystem</code></td><td>Read/write local files</td></tr><tr><td><strong>github</strong></td><td><code>npx @modelcontextprotocol/server-github</code></td><td>GitHub repository operations</td></tr><tr><td><strong>sqlite</strong></td><td><code>uvx mcp-server-sqlite</code></td><td>SQLite database queries</td></tr><tr><td><strong>postgres</strong></td><td><code>npx @modelcontextprotocol/server-postgres</code></td><td>PostgreSQL queries</td></tr><tr><td><strong>puppeteer</strong></td><td><code>npx @modelcontextprotocol/server-puppeteer</code></td><td>Browser automation</td></tr><tr><td><strong>slack</strong></td><td><code>npx @modelcontextprotocol/server-slack</code></td><td>Read/write Slack messages</td></tr></tbody></table><h3 id=community-mcp-servers>Community MCP Servers<a class=anchor href=#community-mcp-servers>#</a></h3><p>Find more in the <a href=https://github.com/modelcontextprotocol/servers>MCP Registry</a> or at <a href=https://mcp.so>mcp.so</a>:</p><ul><li><strong>mcp-server-fetch</strong>: HTTP requests</li><li><strong>mcp-server-memory</strong>: persistent memory</li><li><strong>mcp-server-notion</strong>: Notion integration</li><li><strong>mcp-server-brave-search</strong>: Brave Search</li></ul><hr><h2 id=3-building-your-own-mcp-server>3. Building Your Own MCP Server<a class=anchor href=#3-building-your-own-mcp-server>#</a></h2><h3 id=python-implementation-recommended>Python Implementation (Recommended)<a class=anchor href=#python-implementation-recommended>#</a></h3><p>Install the SDK:</p><pre><code class=language-bash>pip install mcp
+</code></pre><p>Minimal example (a weather lookup tool):</p><pre><code class=language-python>from mcp.server import Server
+from mcp.server.stdio import stdio_server
+from mcp.types import Tool, TextContent
+
+# Create the server
+server = Server(&quot;weather-server&quot;)
+
+# Define the tool list
+@server.list_tools()
+async def list_tools():
+    return [
+        Tool(
+            name=&quot;get_weather&quot;,
+            description=&quot;Get the weather for a given city&quot;,
+            inputSchema={
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;city&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;City name&quot;}
+                },
+                &quot;required&quot;: [&quot;city&quot;]
+            }
+        )
+    ]
+
+# Implement the tool logic
+@server.call_tool()
+async def call_tool(name: str, arguments: dict):
+    if name == &quot;get_weather&quot;:
+        city = arguments[&quot;city&quot;]
+        # A real implementation would call a weather API; this returns mock data
+        return [TextContent(type=&quot;text&quot;, text=f&quot;{city}: Sunny, 25°C&quot;)]
+    raise ValueError(f&quot;Unknown tool: {name}&quot;)
+
+# Start the server
+async def main():
+    async with stdio_server() as (read, write):
+        await server.run(read, write, server.create_initialization_options())
+
+if __name__ == &quot;__main__&quot;:
+    import asyncio
+    asyncio.run(main())
+</code></pre><h3 id=typescript-implementation>TypeScript Implementation<a class=anchor href=#typescript-implementation>#</a></h3><p>Install the SDK:</p><pre><code class=language-bash>npm install @modelcontextprotocol/sdk
+</code></pre><p>Example:</p><pre><code class=language-typescript>import { Server } from &quot;@modelcontextprotocol/sdk/server/index.js&quot;;
+import { StdioServerTransport } from &quot;@modelcontextprotocol/sdk/server/stdio.js&quot;;
+
+const server = new Server(
+  { name: &quot;weather-server&quot;, version: &quot;1.0.0&quot; },
+  { capabilities: { tools: {} } }
+);
+
+// List tools
+server.setRequestHandler(&quot;tools/list&quot;, async () =&gt; ({
+  tools: [{
+    name: &quot;get_weather&quot;,
+    description: &quot;Get the weather for a given city&quot;,
+    inputSchema: {
+      type: &quot;object&quot;,
+      properties: { city: { type: &quot;string&quot; } },
+      required: [&quot;city&quot;]
+    }
+  }]
+}));
+
+// Call a tool
+server.setRequestHandler(&quot;tools/call&quot;, async (request) =&gt; {
+  const { name, arguments: args } = request.params;
+  if (name === &quot;get_weather&quot;) {
+    return { content: [{ type: &quot;text&quot;, text: `${args.city}: Sunny, 25°C` }] };
+  }
+  throw new Error(`Unknown tool: ${name}`);
+});
+
+// Start
+const transport = new StdioServerTransport();
+server.connect(transport);
+</code></pre><h3 id=registering-with-a-client>Registering with a Client<a class=anchor href=#registering-with-a-client>#</a></h3><p>Add your server to the config:</p><pre><code class=language-json>{
+  &quot;mcpServers&quot;: {
+    &quot;my-weather&quot;: {
+      &quot;command&quot;: &quot;python&quot;,
+      &quot;args&quot;: [&quot;/path/to/weather_server.py&quot;]
+    }
+  }
+}
+</code></pre><h3 id=implementing-resources-optional>Implementing Resources (Optional)<a class=anchor href=#implementing-resources-optional>#</a></h3><pre><code class=language-python>from mcp.types import Resource
+
+@server.list_resources()
+async def list_resources():
+    return [
+        Resource(
+            uri=&quot;file:///config/settings.json&quot;,
+            name=&quot;Config file&quot;,
+            mimeType=&quot;application/json&quot;
+        )
+    ]
+
+@server.read_resource()
+async def read_resource(uri: str):
+    if uri == &quot;file:///config/settings.json&quot;:
+        return '{&quot;theme&quot;: &quot;dark&quot;, &quot;language&quot;: &quot;zh&quot;}'
+    raise ValueError(f&quot;Unknown resource: {uri}&quot;)
+</code></pre><h3 id=debugging-tips>Debugging Tips<a class=anchor href=#debugging-tips>#</a></h3><pre><code class=language-bash># Debug with MCP Inspector
+npx @modelcontextprotocol/inspector python weather_server.py
+
+# View Claude Desktop logs
+tail -f ~/Library/Logs/Claude/mcp*.log
+</code></pre><hr><h2 id=further-reading>Further Reading<a class=anchor href=#further-reading>#</a></h2><ul><li><strong>Transports</strong>: stdio (local process), HTTP+SSE (remote service)</li><li><strong>Security considerations</strong>: Servers should restrict file access paths, validate input, and keep logs</li><li><strong>Official docs</strong>: <a href=https://modelcontextprotocol.io>modelcontextprotocol.io</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><span><a href=/docs/ai-notes/ml/models/qwen/qwen-3/ class="flex align-center"><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22m313-440%20196%20196q12%2012%2011.5%2028T508-188q-12%2011-28%2011.5T452-188L188-452q-6-6-8.5-13t-2.5-15%202.5-15%208.5-13l264-264q11-11%2027.5-11t28.5%2011q12%2012%2012%2028.5T508-715L313-520h447q17%200%2028.5%2011.5T8e2-480t-11.5%2028.5T760-440H313z%22/%3E%3C/svg%3E" class=book-icon alt=Backward>
+<span>Qwen 3</span>
+</a></span><span><a href=/docs/ai-notes/cs/engineering/dify/ class="flex align-center"><span>Dify</span>
+<img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20height=%2224%22%20viewBox=%220%20-960%20960%20960%22%20width=%2224%22%20fill=%22%231f1f1f%22%3E%3Cpath%20d=%22M647-440H2e2q-17%200-28.5-11.5T160-480t11.5-28.5T2e2-520h447L451-716q-12-12-11.5-28t12.5-28q12-11%2028-11.5t28%2011.5l264%20264q6%206%208.5%2013t2.5%2015-2.5%2015-8.5%2013L508-188q-11%2011-27.5%2011T452-188q-12-12-12-28.5t12-28.5l195-195z%22/%3E%3C/svg%3E" class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#1-what-it-is>1. What It Is</a></li><li><a href=#2-using-existing-mcp-servers>2. Using Existing MCP Servers</a><ul><li><a href=#configuring-in-claude-desktop>Configuring in Claude Desktop</a></li><li><a href=#configuring-in-cursor>Configuring in Cursor</a></li><li><a href=#common-official-mcp-servers>Common Official MCP Servers</a></li><li><a href=#community-mcp-servers>Community MCP Servers</a></li></ul></li><li><a href=#3-building-your-own-mcp-server>3. Building Your Own MCP Server</a><ul><li><a href=#python-implementation-recommended>Python Implementation (Recommended)</a></li><li><a href=#typescript-implementation>TypeScript Implementation</a></li><li><a href=#registering-with-a-client>Registering with a Client</a></li><li><a href=#implementing-resources-optional>Implementing Resources (Optional)</a></li><li><a href=#debugging-tips>Debugging Tips</a></li></ul></li><li><a href=#further-reading>Further Reading</a></li></ul></nav></div></aside></main></body></html>
